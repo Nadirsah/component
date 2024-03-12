@@ -1,3 +1,17 @@
+@php
+if(empty($id) || !isset($id))
+{
+$id=uniqid('input-');
+}
+@endphp
+
 <div>
-    <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
+    @isset($label)
+    <label for="{{$id}}" class="mb-2 {{$labelClasses ?? ''}}">{{$label}}</label>
+    @endisset
+
+    <input type="{{$type ?? 'text'}}" name="{{$name}}" id="{{$id}}"
+        placeholder="{{isset($placeholder) ? $placeholder :(isset($label) ? $label : '')}}"
+        class="{{$type !='submit' ? 'form-control' : ''}} {{$inputClasses}}" value="{{$defaultValue ?? :}}"
+        {{ isset($isDisabled) && $isDisabled ? 'disabled' : '' }}>
 </div>

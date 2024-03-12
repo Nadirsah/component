@@ -11,10 +11,24 @@
     </x-slot>
     <x-slot name="content">
         <form action="" method="post" class="w-100 text-start">
-            <div class="mt-3">
+            <!-- <div class="mt-3">
                 <label for="name">Meqale adi</label>
                 <input type="text" name="name" id="name" placeholder="yazin" class="form-control">
-            </div>
+            </div> -->
+            <x-admin.elements.input 
+            :labelClasses="'text-danger'" 
+            :id="'name'" 
+            :name="'name'" 
+            :inputClasses="'name'"
+            :placeholder="'Meqale adi'" 
+            :isDisabled="'false'" 
+            :defaultValue="'test'" 
+            :type="'text'"
+            :parentclass="''">
+                <x-slot:label>
+                    Meqale adi geldi
+                </x-slot:label>
+            </x-admin.elements.input>
 
             <div class="mt-3">
                 <label for="category" class="mb-2">Kategoriya</label>
